@@ -5,8 +5,8 @@ var api = require('./lib/api')
 var accessToken ;
 module.exports = {
   appConfig: {
-    clientId: 'a5129376-be81-4942-909c-96b307dbf4a2',
-    clientSecret: 'af540846-105d-4852-93d3-1d6a6feaf23d'
+    clientId: 'da7ad270-b5e6-4bdb-8bbc-a6cad9939394',
+    clientSecret: '535b0928-8a79-4a65-b204-3e2795ea768a'
   },
   userConfig: {
     accounts: [{
