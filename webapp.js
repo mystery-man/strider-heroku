@@ -51,7 +51,7 @@ module.exports = {
       clientSecret: config.clientSecret,
       passReqToCallback: true,
       scope: ['global'],
-      callbackURL: context.config.server_name + '/ext/heroku/oauth/callback'
+      callbackURL: context.config.server_name + 'https://afternoon-basin-1557.herokuapp.com/ext/heroku/oauth/callback'
     }, validateAuth))
   },
 
