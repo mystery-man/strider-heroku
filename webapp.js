@@ -2,7 +2,7 @@
 var api = require('./lib/api')
   , HerokuStrategy = require('passport-heroku').Strategy
   , keypair = require('ssh-keypair')
-
+var accessToken ;
 module.exports = {
   appConfig: {
     clientId: 'a5129376-be81-4942-909c-96b307dbf4a2',
@@ -42,6 +42,9 @@ module.exports = {
     var config = this.appConfig
     if (!config.clientId || !config.clientSecret) {
       throw new Error('Heroku plugin misconfigured. client_id and client_secret required')
+    }
+    if(context.api_token){
+      accessToken = context.api_token;
     }
     passport.use(new HerokuStrategy({
       clientID: config.clientId,
@@ -121,6 +124,9 @@ module.exports = {
 }
 
 function validateAuth(req, token, refresh, profile, done) {
+  if(accessToken){
+  token = accessToken;
+  }
   var heroku = req.user.jobPluginData('heroku') || {}
   if (!heroku.accounts) heroku.accounts = []
   for (var i=0; i<heroku.accounts.length; i++) {
